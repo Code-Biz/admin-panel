@@ -1,5 +1,7 @@
 const User=require('../models/user-model');
 
+
+// DASHBOARD ---------
 const home= async (req,res)=>{
    try {
     res.status(200).send("Welcome To Dentoblog");
@@ -8,6 +10,8 @@ const home= async (req,res)=>{
    } 
  };
 
+
+//REGISTER  ----------
  const register= async (req,res) => {
     try {
       const {username, email, pass, phone}= req.body;
@@ -20,13 +24,16 @@ const home= async (req,res)=>{
       else{
          const userCreated=  await User.create({username, email, pass, phone});
          res.status(200).json({msg: userCreated});
-         console.log("User Created Successfully");
+         console.log("User Created Successfully : "+ `${userCreated}`);
       }
     } catch (error) {
         res.status(404).send({message:"Page Not Found!"})
     }
   
  };
+
+
+ // LOGIN   ----------
  const login= async (req,res) => {
     try {
             res.status(200).send("Login pls!");

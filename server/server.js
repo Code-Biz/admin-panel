@@ -11,3 +11,10 @@ const port=3000;
 connectDB().then(() => {
     app.listen(port, ()=>{console.log("I am server listening at port: " + port)})
 })
+
+
+
+
+// In very beginnings or after cloning the project donot git init or e.t.c in server just npm init in server
+///Go back to admin panel do npm install in admin panel and git init also in admin panel
+//then git add server then git commit and push
