@@ -26,7 +26,7 @@ const register = async (req, res) => {
       }
       // registering
       else {
-         const userCreated = await User.create({ username, email, pass, phone });
+         const userCreated = await User.create({ username, email, pass, phone });// This is the main line below is just a basic response shown to user.
 
          res.status(200).json({
             msg: "User registered successfully ...",
@@ -37,7 +37,12 @@ const register = async (req, res) => {
          console.log("User Created Successfully : " + `${userCreated}`);
       }
    } catch (error) {
-      res.status(404).send({ message: "Page Not Found!" })
+      // res.status(404).send({ message: "Page Not Found!" }) use this line or the line below in which we are calling an arror middleware
+      const status = "404";
+      const message = "Error: User Registration Failed by register-auth-controller!";
+      const description = "There might be something wrong with the user entered details or backend...";
+      const err = { status, message, description, error };
+      next(err);
    }
 
 };
