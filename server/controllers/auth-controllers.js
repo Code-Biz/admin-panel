@@ -65,6 +65,7 @@ const login = async (req, res) => {
       if (userVerified) {
          res.status(201).json({
             msg: "Login Successfull ...",
+            username: userExist.username,
             user_id: userExist._id.toString(),
             token: await userExist.generateToken(),
          })
