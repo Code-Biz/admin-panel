@@ -1,3 +1,5 @@
-export const Login = () => {
-  return <h1>Login Page</h1>;
+
+export const Login = () =>{
+
+    return <h1>Login Page</h1>;
 };
