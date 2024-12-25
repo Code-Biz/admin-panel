@@ -1,5 +1,3 @@
-const { description } = require("../models/regValidationSchema");
-
 const errorMiddleware = (err, req, res, next) => {
     const status = err.status || "Error Status Not Found ...";
     const name = err.error.name || "Error Name not found ...";

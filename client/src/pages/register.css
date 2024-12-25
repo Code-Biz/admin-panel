@@ -2,3 +2,21 @@ input {
   margin-left: 20px;
   margin-bottom: 5px;
 }
+
+img {
+  width: 350px;
+  height: 300px;
+}
+
+.registration-image {
+  /* background-color: aqua; */
+  /* padding: 20px; */
+  margin-left: 50px;
+  margin-top: -30px;
+}
+
+.registration-form {
+  /* background-color: aqua; */
+  /* padding: 20px; */
+  margin-right: 50px;
+}

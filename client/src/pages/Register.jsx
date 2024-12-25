@@ -33,8 +33,8 @@ export const Register = () => {
         <main>
           <div className="section-registeration">
             <div className="container grid grid-two-cols">
-              <div className="registeration-image">
-                {/* <img src="/client/public/Images/register-form.png" alt="" /> */}
+              <div className="registration-image">
+                <img src="Images/register-form.jpeg" alt="" />
               </div>
 
               <div className="registration-form">
