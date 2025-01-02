@@ -61,6 +61,7 @@ const login = async (req, res) => {
       }
 
       const userVerified = await userExist.comparePass(pass);
+      // Or const userVerified = bcrypt.compare(pass, userExist.pass);;
 
       if (userVerified) {
          res.status(201).json({
@@ -71,7 +72,7 @@ const login = async (req, res) => {
 
       }
       else {
-         res.status(400).json({ msg: "Invalid Credentials" })
+         res.status(400).json({ msg: "Invalid Credentials from backend" })
       }
    } catch (error) {
       res.status(404).send({ message: "Server Error!" })

@@ -4,8 +4,15 @@ const auth_routes = require('./router/auth-routes');
 const form_routes = require('./router/form-routes');
 const connectDB = require('./utils/db');
 const errorMiddleware = require('./middleware/error-middleware');
+const cors = require('cors');
 
+const corsOptions = {
+    origin: "http://localhost:8000",
+    methods: "GET, POST, PUT, DELETE,  PATCH, HEAD",
+    credentials: true,
+};
 
+app.use(cors(corsOptions))
 app.use(express.json());         // filters json data recieved in requests
 app.use("/api/auth", auth_routes);    // utilizing the router file
 app.use("/forms", form_routes);

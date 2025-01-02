@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import("./register.css");
+import { useAuthContext } from "../store/contexts_provider";
 
 //THESE PAGES ARE DEALT AS COMPONENTS AS WELL JUST LIKE THE NAVBAR COMPONENT WE CREATED IN COMMPONENTS FOLDERS
 export const Register = () => {
@@ -17,14 +19,49 @@ export const Register = () => {
     setUser({
       ...user,
       [name]: value,
+      // we have used [] in above line to make the name dynamic means it will be dynamically ebing stored in the storaged. untill we press submit and store it permanently
     });
+
+    //2nd way
+    //  setUser((prev)=>{
+    //   ...prev,
+    //   [name]: value,
+    // });
 
     console.log(user);
   };
 
-  const handleSubmit = (e) => {
+  const navigator = useNavigate();
+  const { storeTokenInLS } = useAuthContext();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("User Registered: " + `${user.username}`);
+    try {
+      const responseRcvd = await fetch(
+        "http://localhost:3000/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+        }
+      );
+
+      console.log("Response from Server : ", responseRcvd);
+
+      if (responseRcvd.ok) {
+        const res_asJSON = await responseRcvd.json();
+        storeTokenInLS(res_asJSON.token);
+
+        //As user has registered now empty the fields
+        setUser({ username: "", email: "", phone: "", pass: "" });
+        alert("User Registered! Hold on we are navigating you to login page.");
+        navigator("/login");
+      } else {
+        console.log("Invalid Credentials");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -34,11 +71,11 @@ export const Register = () => {
           <div className="section-registeration">
             <div className="container grid grid-two-cols">
               <div className="registration-image">
-                <img src="Images/register-form.jpeg" alt="" />
+                <img src="Images/register-form.png" alt="" id="reg-image" />
               </div>
 
               <div className="registration-form">
-                <h1>Registeration Form</h1>
+                <h1>Registration Form</h1>
 
                 <br />
 

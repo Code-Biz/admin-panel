@@ -7,6 +7,7 @@ const loginValidationSchema = require('../models/loginValidationSchema');
 const loginValidator = require('../middleware/loginValidator');
 
 
+
 // GET DASHBOARD --------
 router.route('/').get(auth_controllers.home);
 // POST REGISTER --------

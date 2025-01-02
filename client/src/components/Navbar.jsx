@@ -1,18 +1,20 @@
 import { NavLink } from "react-router-dom";
+
 import("./Navbar.css");
 
 export const Navbar = () => {
   return (
     <>
       <header>
-        <div className="container">
+        <div className="header-container">
           <div className="logo-header">
-            <NavLink to="Home">Dentoblog</NavLink>
+            <NavLink to="Home">Dentiblog</NavLink>
           </div>
 
           <nav>
             <ul>
               <li>
+                {/* not used a tag for links and used Navlink because this make the pages to not load or reload and immediately appear as soon as we shift from one page to another */}
                 <NavLink to="Home">Home</NavLink>
               </li>
               <li>

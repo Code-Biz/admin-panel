@@ -1,4 +1,9 @@
 import { useState } from "react";
+import("./login.css");
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../store/contexts_provider";
+
+const url = "http://localhost:3000/api/auth/login";
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -17,9 +22,33 @@ export const Login = () => {
     console.log(user);
   };
 
-  const handleSubmit = (e) => {
+  const navigator = useNavigate();
+  const { storeTokenInLS } = useAuthContext();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("User Loged In: " + `${user.username}`);
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const res_asJSON = await response.json();
+        storeTokenInLS(res_asJSON.token);
+
+        alert("Login Successful");
+        setUser({ email: "", pass: "" });
+        console.log("User Loged In: " + `${user.username}`);
+        navigator("/");
+      } else {
+        console.log("Invalid Credentials from frontend");
+        alert("Invalid Credentials");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -29,7 +58,7 @@ export const Login = () => {
           <div className="section-login">
             <div className="container grid grid-two-cols">
               <div className="login-image">
-                <img src="Images\register-form.jpeg" alt="" />
+                <img src="Images\register-form.png" alt="" id="log-image" />
               </div>
 
               <div className="login-form">
