@@ -6,7 +6,7 @@ const services = async (req, res) => {
         if (!servicesFound) {
             res.status(404).json({ msg: "No Services Found...!" });
         }
-        res.status(200).json({ "Services Found as given Below": servicesFound });
+        res.status(200).json({ "msg": servicesFound });
     } catch (error) {
         console.log(`services: ${error}`);
 
