@@ -1,7 +1,7 @@
 import { useState } from "react";
 import("./login.css");
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../store/contexts_provider";
+import { useAuthContext } from "../store/contextsAndEffects_provider";
 
 const url = "http://localhost:3000/api/auth/login";
 
@@ -28,6 +28,7 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //This below is the same thing that we do using postman i.e make some request to backend. Here we doing it from frontend using fetch or axios could be used as well.
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -41,7 +42,7 @@ export const Login = () => {
         alert("Login Successful");
         setUser({ email: "", pass: "" });
         console.log("User Loged In: " + `${user.username}`);
-        navigator("/");
+        navigator("/Home");
       } else {
         console.log("Invalid Credentials from frontend");
         alert("Invalid Credentials");

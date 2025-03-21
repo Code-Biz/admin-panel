@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import("./register.css");
-import { useAuthContext } from "../store/contexts_provider";
+import { useAuthContext } from "../store/contextsAndEffects_provider";
 
 //THESE PAGES ARE DEALT AS COMPONENTS AS WELL JUST LIKE THE NAVBAR COMPONENT WE CREATED IN COMMPONENTS FOLDERS
 export const Register = () => {

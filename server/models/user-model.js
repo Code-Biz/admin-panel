@@ -84,5 +84,8 @@ userSchema.methods.comparePass = async function (passEntered) {
 
 }
 
+// *IMP*
+//  A collection named userCollection that will contains multiple users details based on the schema userSchema,
+//    will be created in the Database named as adminPanel, via MongoDb.
 
 module.exports = new mongoose.model("userCollection", userSchema);

@@ -19,6 +19,8 @@ input:focus {
 
 .login-form label {
   padding-top: 0.2rem;
+  font-weight: 700;
+  color: rgb(228, 101, 245);
 }
 
 button {
@@ -46,4 +48,8 @@ form {
   /* padding: 20px; */
   margin-right: 180px;
   margin-top: 120px;
+}
+
+.login-form h1 {
+  color: rgb(228, 101, 245);
 }

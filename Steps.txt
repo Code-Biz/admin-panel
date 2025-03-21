@@ -1,0 +1,7 @@
+FOR GETTING LOGGED IN USER DATA
+user route in -> Auth-rooter
+user req,res contorller -> Auth-controller
+tokenverifier middleware -> middlewares
+
+(tip: Middleware actually sits in between modifies req(optional), 
+sends some kinda res and then forwards, moves to next function e.t.c) E.g See the tokenVerifier middleware

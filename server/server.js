@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const auth_routes = require('./router/auth-routes');
 const form_routes = require('./router/form-routes');
+const services_routes = require('./router/services-routes');
 const connectDB = require('./utils/db');
 const errorMiddleware = require('./middleware/error-middleware');
 const cors = require('cors');
@@ -15,8 +16,13 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json());         // filters json data recieved in requests
 app.use("/api/auth", auth_routes);    // utilizing the router file
-app.use("/forms", form_routes);
+app.use("/api/forms", form_routes);
+
+// api/services/all
+app.use("/api/services", services_routes);
+
 app.use(errorMiddleware);
+
 const port = 3000;
 connectDB().then(() => {
     app.listen(port, () => { console.log("I am server listening at port: localhost:3000/api/auth/") })

@@ -10,7 +10,7 @@ const regvalidator = (schema) => async (req, res, next) => {
         const heading = "Validation Failed by regValidator!";
         const description = "Please recheck for mistakes in form fields or see the issues in detail below : ";
         const err = { status, heading, description, error };
-        next(err); //goes to the error middleware
+        next(err); //The above code is of regValidator middleware applied on the /register route and after execution of above code, the next() func moves the workflow to auth_controllers.register.
     }
 
 };

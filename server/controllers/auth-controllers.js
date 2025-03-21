@@ -80,4 +80,17 @@ const login = async (req, res) => {
 
 };
 
-module.exports = { home, register, login }
+
+// USER    ----------
+const user = async (req, res) => {
+   try {
+      const userData = req.user;
+      console.log("User Found, below is his data: " + userData);
+      return res.status(200).json({ userData })
+   } catch (error) {
+      console.log("Error hit while finding user data: " + error);
+   }
+};
+
+
+module.exports = { home, register, login, user }
