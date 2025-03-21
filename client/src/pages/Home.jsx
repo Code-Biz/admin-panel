@@ -10,11 +10,7 @@ const Contact = () => {
   return <h1>Contact Page</h1>;
 };
 
-const Services = () => {
-  return <h1>Services Page</h1>;
-};
-
-export { Home, About, Contact, Services };
+export { Home, About, Contact };
 
 //Click in forn of the Services and press Ctrl D again and again to select all occurrences of term services written anywhere in this file
 
