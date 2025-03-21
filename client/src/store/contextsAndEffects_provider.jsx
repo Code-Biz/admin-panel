@@ -13,6 +13,7 @@ export const authContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("Token_InLS"));
+  const [services, setService] = useState([]);
 
   //CONTEXT 1
   const storeTokenInLS = (serverToken) => {
@@ -46,17 +47,39 @@ export const AuthContextProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const getServices = async () => {
+    try {
+      const fetch_service_from_bcknd = await fetch(
+        "http://localhost:3000/api/services/all",
+        {
+          method: "GET",
+        }
+      );
+
+      if (fetch_service_from_bcknd.ok) {
+        const response_data = await fetch_service_from_bcknd.json();
+        console.log(response_data.msg);
+        setService(response_data.msg);
+      }
+    } catch (error) {
+      console.log("error here at store: "`${error}`);
+    }
+  };
+
   //EFFECT 1 -------- To fetch logged in user data
   useEffect(() => {
+    getServices();
     userVerifier();
   }, []);
 
   return (
-    <authContext.Provider value={{ storeTokenInLS, LogoutUser, isLogged }}>
+    <authContext.Provider
+      value={{ storeTokenInLS, LogoutUser, isLogged, services }}
+    >
       {children}
     </authContext.Provider>
 
-    // we are providing the storeTokenInLS, LogoutUser and isLogged contexts functions to the childrens of <authContext.Provider> i.e the components or pieces of code using this provider or wrapped inside it e.g as in the main.jsx file
+    // we are providing the storeTokenInLS, LogoutUser and isLogged contexts functions to the childrens  of <authContext.Provider> i.e the components or pieces of code using this provider or wrapped inside it e.g as in the main.jsx file or say providing to the whole react application
   );
 };
 

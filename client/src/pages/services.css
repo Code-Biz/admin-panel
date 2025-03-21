@@ -1,7 +1,5 @@
 /* deafult simple css of a pagee that contains <section> <div container><div> h1 and catalouge div </div></div> </section>*/
-body {
-  background-color: white;
-}
+
 .services-section {
   /* background-color: red; */
   padding: 25px 5px 25px 5px;
@@ -11,7 +9,7 @@ body {
   display: flex;
   flex-direction: column; /* Ensures elements stack vertically */
   justify-content: center; /* Centers horizontally */
-  /* align-items: center; Centers vertically */
+  align-items: center; /*Centers vertically*/
   width: auto;
   height: auto;
   padding: 5px 30px 5px 30px;
@@ -29,16 +27,40 @@ body {
 .services-catalouge {
   /* background-color: rgb(242, 203, 253); */
   height: auto;
-  width: auto;
+  width: fit-content;
   border-radius: 10px;
   border: 0.1rem solid blueviolet;
-  margin-top: 10px;
-  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  padding: 15px 0px 15px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .service-card {
   background-color: rgb(41, 41, 43);
-  height: 60vh;
+  height: auto;
   width: 40vh;
   border-radius: 10px;
+  padding: 10px 8px;
+  margin: 10px 10px;
+}
+
+.service-img {
+  border: 0.1rem solid blueviolet;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+}
+
+#s-img {
+  height: 100%;
+  width: 100%;
+}
+.s-details {
+  color: white;
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: me;
 }
