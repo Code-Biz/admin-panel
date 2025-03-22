@@ -1,5 +1,12 @@
+import { useAuthContext } from "../store/contextsAndEffects_provider";
+
 const Home = () => {
-  return <h1>Home Page</h1>;
+  const { userData } = useAuthContext();
+  return (
+    <>
+      <h1>Welcome Doctor {userData.username}</h1>
+    </>
+  );
 };
 
 const About = () => {
@@ -7,7 +14,16 @@ const About = () => {
 };
 
 const Contact = () => {
-  return <h1>Contact Page</h1>;
+  const { userData } = useAuthContext();
+  return (
+    <>
+      <label htmlFor="Email">Username</label>
+      <input type="Email" placeholder={userData.username} readOnly />
+      <br />
+      <label htmlFor="Email">Email</label>
+      <input type="Email" placeholder={userData.email} readOnly />
+    </>
+  );
 };
 
 export { Home, About, Contact };

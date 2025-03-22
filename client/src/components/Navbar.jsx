@@ -10,7 +10,7 @@ export const Navbar = () => {
       <header>
         <div className="header-container">
           <div className="logo-header">
-            <NavLink to="Home">Dentiblog</NavLink>
+            <NavLink to="Home">Dento Care</NavLink>
           </div>
 
           <nav>

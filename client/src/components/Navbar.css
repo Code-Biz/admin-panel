@@ -9,22 +9,34 @@ ul{
     gap: 2rem;
     list-style-type: none;  
 } */
-
 .header-container {
-  max-width: 140rem;
-  padding: 1rem 2.4rem;
+  width: auto;
+  min-width: fit-content;
+  /* The Below block of code aligns the logo and the nav links properly on the nav bar and keeps it relative to screen zoom */
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  background-color: rgb(235, 175, 253);
+  /*  */
+  padding: 1rem 2.4rem;
+  background-color: blueviolet;
   border-radius: 0px 0px 10px 10px;
 }
 
+.logo-header {
+  margin-right: 60px;
+  font-weight: 900;
+  font-size: 2.25rem;
+}
+
+/* a is for Navlinks */
 .header-container a {
-  color: rgb(203, 22, 248);
+  color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: larger;
   text-decoration: none;
 }
+
 ul {
   display: flex;
   gap: 1.5rem;

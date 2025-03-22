@@ -28,7 +28,7 @@ export const Register = () => {
     //   [name]: value,
     // });
 
-    console.log(user);
+    // console.log(user);
   };
 
   const navigator = useNavigate();
@@ -46,8 +46,9 @@ export const Register = () => {
         }
       );
 
-      console.log("Response from Server : ", responseRcvd);
+      // console.log("Response From Server : ", await responseRcvd.json());
 
+      //If responseRcvd.ok is found and is true also then if condition will execute and if its not found the else condition will execute
       if (responseRcvd.ok) {
         const res_asJSON = await responseRcvd.json();
         storeTokenInLS(res_asJSON.token);
@@ -57,10 +58,12 @@ export const Register = () => {
         alert("User Registered! Hold on we are navigating you to login page.");
         navigator("/login");
       } else {
-        console.log("Invalid Credentials");
+        const errRcvd = await responseRcvd.json();
+        console.log("ref: register in register.jsx");
+        console.log(errRcvd);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Fetching Failed Because Of ::" + error);
     }
   };
 

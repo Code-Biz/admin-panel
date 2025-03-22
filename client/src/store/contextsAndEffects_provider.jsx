@@ -14,6 +14,7 @@ export const authContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("Token_InLS"));
   const [services, setService] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   //CONTEXT 1
   const storeTokenInLS = (serverToken) => {
@@ -42,7 +43,8 @@ export const AuthContextProvider = ({ children }) => {
       });
 
       if (response.ok) {
-        const userData = await response.json();
+        const user_Data = await response.json();
+        setUserData(user_Data.data);
       }
     } catch (error) {}
   };
@@ -58,12 +60,9 @@ export const AuthContextProvider = ({ children }) => {
 
       if (fetch_service_from_bcknd.ok) {
         const response_data = await fetch_service_from_bcknd.json();
-        console.log(response_data.msg);
         setService(response_data.msg);
       }
-    } catch (error) {
-      console.log("error here at store: "`${error}`);
-    }
+    } catch (error) {}
   };
 
   //EFFECT 1 -------- To fetch logged in user data
@@ -74,7 +73,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <authContext.Provider
-      value={{ storeTokenInLS, LogoutUser, isLogged, services }}
+      value={{ storeTokenInLS, LogoutUser, isLogged, services, userData }}
     >
       {children}
     </authContext.Provider>
