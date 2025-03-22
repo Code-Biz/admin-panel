@@ -9,6 +9,37 @@ by making request from postman or frontend to the specified route
 (FRONTEND)
 In Services.jsx component code css divisons. Now the logic for this style can be entered 
 in this file at top of return but we'll write it in stores to keep the pages and code clean.
-The data that we will get in this store via getServices() logic in useEffect, useState and Services logic in AuthContext.Provider , will be used by the services page as well as 
-can also be used any other page as need. As the services state is passed to whole react application and via the AuthContext.Provider of the auth.jsx or say store.jsx (its benefit of store).
+The data that we will get in this store via getServices() logic in useEffect, useState and services logic in AuthContext.Provider , will be used by the services page as well as 
+can also be used any other page as needed. As the services state is passed to whole react application via the AuthContext.Provider just like some other state or functions are passed to the whole application for use in the auth.jsx file or say store.jsx (its benefit of store).
 In Services.jsx include const {services} = useAuth(); to utilize this data fethced in services of useauth()
+
+/* deafult simple css of a pagee that contains <section> <div container><div> h1 and catalouge div </div></div> </section>*/
+.services-section {
+  background-color: red;
+  padding: 5px 5px 5px 5px;
+}
+.services-container {
+  background-color: blue;
+  display: flex;
+  /* align-items: center; Centers vertically */
+  justify-content: center; /* Centers horizontally */
+  flex-direction: column; /* Ensures elements stack vertically */
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 5px 5px 5px 5px;
+}
+
+#services-h1 {
+  background-color: aqua;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+}
+.services-catalouge {
+  background-color: aqua;
+  height: 70vh;
+  width: auto;
+  margin-top: 5px;
+}
+
