@@ -38,10 +38,8 @@ const register = async (req, res) => {
       }
    } catch (error) {
       // res.status(404).send({ message: "Page Not Found!" }) use this line or the line below in which we are calling an arror middleware
-      const status = "404";
-      const message = "Error: User Registration Failed by register-auth-controller!";
-      const description = "There might be something wrong with the user entered details or backend...";
-      const err = { status, message, description, error };
+      //At this nect if there is some error it moves to the error middleware with the default error dat aor with custom error dat u can define here as u did in regValidoto
+      console.log("Moving to next() from auth-controllers");
       next(err);
    }
 
@@ -84,9 +82,9 @@ const login = async (req, res) => {
 // USER    ----------
 const user = async (req, res) => {
    try {
-      const userData = req.user;
-      console.log("User Found, below is his data: " + userData);
-      return res.status(200).json({ userData })
+      const data = req.user;
+      console.log("User Found, below is his data: " + data);
+      return res.status(200).json({ data })
    } catch (error) {
       console.log("Error hit while finding user data: " + error);
    }

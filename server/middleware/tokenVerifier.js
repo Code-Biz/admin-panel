@@ -19,7 +19,7 @@ const authMiddleware = async (req, res, next) => {
     try {
         const tokenVerifed = jwt.verify(pureToken, process.env.JWT_SECRET_KEY);
         const userData = await User.findOne({ email: tokenVerifed.email }).select({ pass: 0, });
-        console.log("Token Verified-tokenVerifier.js");
+        console.log("Token Verified! - ref: tokenVerifier.js");
 
 
         req.user = userData;

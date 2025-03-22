@@ -3,7 +3,7 @@ const loginValidator = (schema) => async (req, res, next) => {
 
         const validatedLogin = await schema.parseAsync(req.body);
         req.body = validatedLogin;
-        console.log("Validated credentials !");
+        console.log("Validated credentials ! - ref: loginValidator.js");
         next();
 
     } catch (error) {

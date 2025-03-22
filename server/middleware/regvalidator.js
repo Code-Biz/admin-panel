@@ -6,11 +6,16 @@ const regvalidator = (schema) => async (req, res, next) => {
         console.log("User is validated")
         next(); // goes back to the function 
     } catch (error) {
-        const status = "404";
+        const status = "40400";
         const heading = "Validation Failed by regValidator!";
         const description = "Please recheck for mistakes in form fields or see the issues in detail below : ";
+
         const err = { status, heading, description, error };
-        next(err); //The above code is of regValidator middleware applied on the /register route and after execution of above code, the next() func moves the workflow to auth_controllers.register.
+
+        //The reg Validator Verifies the format and if theres any error it moves to the error middleware from this next()
+        next(err);
+
+        // This next passes err as defined above to the error - middleware where it is directly returned in the return statement as it is by using the term err only or the values set/defined in the error-middleware can be returned
     }
 
 };

@@ -17,9 +17,7 @@ app.use(cors(corsOptions))
 app.use(express.json());         // filters json data recieved in requests
 app.use("/api/auth", auth_routes);    // utilizing the router file
 app.use("/api/forms", form_routes);
-
-// api/services/all
-app.use("/api/services", services_routes);
+app.use("/api/services", services_routes);  // api/services/all
 
 app.use(errorMiddleware);
 
