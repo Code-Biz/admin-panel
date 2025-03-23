@@ -7,7 +7,9 @@ const loginValidator = (schema) => async (req, res, next) => {
         next();
 
     } catch (error) {
-        next(error)// error middleware
+        console.log("I am at loginValidator : " + error);
+        const err = { error };
+        next(err)// error middleware
     }
 };
 

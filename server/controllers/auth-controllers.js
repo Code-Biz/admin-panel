@@ -2,8 +2,6 @@ const User = require('../models/user-model');
 
 
 
-
-
 // DASHBOARD ---------
 const home = async (req, res) => {
    try {
@@ -13,6 +11,10 @@ const home = async (req, res) => {
    }
 };
 
+
+//when we post data by submit button in the handle submit function of register.jsx i.e frontend part
+// that data goes to the regValidator and from their if theres no response/error rcvd i.e everything is valid then the next()-with no arguments 
+// will move the flow to this below register function and a res from it will be returned to the frontend. 
 
 //REGISTER  ----------
 const register = async (req, res) => {
@@ -38,7 +40,7 @@ const register = async (req, res) => {
       }
    } catch (error) {
       // res.status(404).send({ message: "Page Not Found!" }) use this line or the line below in which we are calling an arror middleware
-      //At this nect if there is some error it moves to the error middleware with the default error dat aor with custom error dat u can define here as u did in regValidoto
+      //At this nect if there is some error it moves to the error middleware with the default error data or with custom error dat u can define here as u did in regValidoto
       console.log("Moving to next() from auth-controllers");
       next(err);
    }
@@ -53,27 +55,31 @@ const login = async (req, res) => {
       const { email, pass } = req.body;
 
       const userExist = await User.findOne({ email });
-      console.log(userExist);
       if (!userExist) {
-         res.status(401).json({ message: "User not found ..." })
+         res.status(401).json("User not found ...")
       }
 
-      const userVerified = await userExist.comparePass(pass);
-      // Or const userVerified = bcrypt.compare(pass, userExist.pass);;
-
-      if (userVerified) {
-         res.status(201).json({
-            msg: "Login Successfull ...",
-            user_id: userExist._id.toString(),
-            token: await userExist.generateToken(),
-         })
-
-      }
       else {
-         res.status(400).json({ msg: "Invalid Credentials from backend" })
+         console.log("User Found: " + userExist);
+         const userVerified = await userExist.comparePass(pass);
+         // Or const userVerified = bcrypt.compare(pass, userExist.pass);;
+
+         if (userVerified) {
+            res.status(201).json({
+               msg: "Login Successfull ...",
+               user_id: userExist._id.toString(),
+               token: await userExist.generateToken(),
+            })
+
+         }
+         else {
+            res.status(400).json("Valid input but isn't correct!")
+         }
       }
    } catch (error) {
-      res.status(404).send({ message: "Server Error!" })
+      console.log("Server Error at auth-controller : " + error);
+      const err = { error };
+      next(err);
    }
 
 };
