@@ -43,24 +43,34 @@ export const Register = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(user),
+          // From   ||1||..here   the enetered data first goes to the   ||2||..regValidator middleware    applied on the above route. If error occurs
+          // regValidator passes that error to    ||3||..error-middleware    by using next(err) applied on all routes of server.js, then that
+          // error-middleware returns the error as res to this above fetch, if no error occurs and data is valid the regValidator
+          // moves to    ||4||..register function/controller    in auth-controller using next() from where some response is then returned to this fetch.
+          //next(error) is for middleware and next() is for next function.
         }
       );
 
-      // console.log("Response From Server : ", await responseRcvd.json());
+      const res_asJSON = await responseRcvd.json();
+      // console.log("Response From Server : ", res_asJSON);
 
-      //If responseRcvd.ok is found and is true also then if condition will execute and if its not found the else condition will execute
+      //If responseRcvd.ok is found and is true also then if condition will execute
+      // and if its not found then else condition will execute which sends a modified error to
+      // error-middleware which is then returned to the route calling that error-middleware i.e the register route.
+      // This route than sends this return as res to frontend that called this route.
       if (responseRcvd.ok) {
-        const res_asJSON = await responseRcvd.json();
-        storeTokenInLS(res_asJSON.token);
+        //IF WE COMMENT THE BELOW LINE IT WILL REMOVE THE LOGOUT PAGE SHOWING AFTER JUST REGISTERING
+        // storeTokenInLS(res_asJSON.token);
 
         //As user has registered now empty the fields
         setUser({ username: "", email: "", phone: "", pass: "" });
         alert("User Registered! Hold on we are navigating you to login page.");
         navigator("/login");
       } else {
-        const errRcvd = await responseRcvd.json();
+        const errRcvd = res_asJSON;
         console.log("ref: register in register.jsx");
         console.log(errRcvd);
+        alert(errRcvd ? errRcvd.issue_message : errRcvd.message);
       }
     } catch (error) {
       console.log("Fetching Failed Because Of ::" + error);

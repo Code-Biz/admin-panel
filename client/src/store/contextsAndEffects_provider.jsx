@@ -58,11 +58,16 @@ export const AuthContextProvider = ({ children }) => {
         }
       );
 
+      //
+      // console.log("getServices() from context: " + fetch_service_from_bcknd);
+
       if (fetch_service_from_bcknd.ok) {
         const response_data = await fetch_service_from_bcknd.json();
         setService(response_data.msg);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //EFFECT 1 -------- To fetch logged in user data
@@ -75,6 +80,7 @@ export const AuthContextProvider = ({ children }) => {
     <authContext.Provider
       value={{ storeTokenInLS, LogoutUser, isLogged, services, userData }}
     >
+      {" "}
       {children}
     </authContext.Provider>
 

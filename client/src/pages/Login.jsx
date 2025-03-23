@@ -15,11 +15,12 @@ export const Login = () => {
     let name = e.target.name;
     let value = e.target.value;
 
+    // here above the name and value referes to the name of field calling this handleinput method i.e email and its value,  pass and its value
     setUser({
       ...user,
       [name]: value,
     });
-    console.log(user);
+    // alert(user);
   };
 
   const navigator = useNavigate();
@@ -35,21 +36,20 @@ export const Login = () => {
         body: JSON.stringify(user),
       });
 
+      const res_asJSON = await response.json();
       if (response.ok) {
-        const res_asJSON = await response.json();
         storeTokenInLS(res_asJSON.token);
 
         alert("Login Successful");
         setUser({ email: "", pass: "" });
-        console.log("User Loged In: " + `${user.username}`);
+        // The below log workss
+        // console.log("User Loged In: " + `${user.username}`);
         navigator("/Home");
       } else {
-        console.log("Invalid Credentials from frontend");
-        alert("Invalid Credentials");
+        console.log(res_asJSON);
+        alert(res_asJSON);
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (
