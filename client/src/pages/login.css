@@ -4,28 +4,23 @@
   margin: 0.2rem 0;
 }
 
-input {
+/* input {
   margin-left: 20px;
   padding: 0.2rem 0px;
   border: none;
+  background-color: greenyellow;
   border-bottom: 0.1rem solid violet;
 }
 
 input:focus {
   border: 0.1rem solid violet;
   border-radius: 0.3rem;
-  outline: none;
-}
+} */
 
 .login-form label {
   padding-top: 0.2rem;
   font-weight: 700;
   color: rgb(228, 101, 245);
-}
-
-button {
-  display: flex;
-  justify-self: end;
 }
 
 .login-image {

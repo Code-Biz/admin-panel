@@ -15,6 +15,7 @@ export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("Token_InLS"));
   const [services, setService] = useState([]);
   const [userData, setUserData] = useState([]);
+  const authorization = `Bearer ${token}`;
 
   //CONTEXT 1
   const storeTokenInLS = (serverToken) => {
@@ -45,10 +46,12 @@ export const AuthContextProvider = ({ children }) => {
       if (response.ok) {
         const user_Data = await response.json();
         setUserData(user_Data.data);
+        console.log("userVerifier successfully ran => contextsAndEffects");
       }
     } catch (error) {}
   };
 
+  //Using async to handle promises
   const getServices = async () => {
     try {
       const fetch_service_from_bcknd = await fetch(
@@ -57,9 +60,7 @@ export const AuthContextProvider = ({ children }) => {
           method: "GET",
         }
       );
-
-      //
-      // console.log("getServices() from context: " + fetch_service_from_bcknd);
+      2; // console.log("getServices() from context: " + fetch_service_from_bcknd);
 
       if (fetch_service_from_bcknd.ok) {
         const response_data = await fetch_service_from_bcknd.json();
@@ -76,18 +77,30 @@ export const AuthContextProvider = ({ children }) => {
     userVerifier();
   }, []);
 
+  //Above all is the logic that will be used by different components/parts of application.
+  // This logic is made availble via the below return in whiich all the childrens/child components
+  //  that will be nested within the <authContext.Provider> ... </authContext.Provider> will have acces to the attribute value object
   return (
     <authContext.Provider
-      value={{ storeTokenInLS, LogoutUser, isLogged, services, userData }}
+      value={{
+        storeTokenInLS,
+        LogoutUser,
+        isLogged,
+        services,
+        userData,
+        authorization,
+      }}
     >
       {" "}
       {children}
     </authContext.Provider>
 
+    // the children above was rcvd as a paramemter at the top hen the authCONTEXTpROVIDER FUNCTION is created
     // we are providing the storeTokenInLS, LogoutUser and isLogged contexts functions to the childrens  of <authContext.Provider> i.e the components or pieces of code using this provider or wrapped inside it e.g as in the main.jsx file or say providing to the whole react application
   );
 };
 
+//This export checks if useContext i.e authContext is true then it makes the useContext() with argument authContext i.e useContext(authContext) availble to be imported anywhere in the application
 export const useAuthContext = () => {
   if (!useContext(authContext)) {
     throw new Error(
@@ -96,3 +109,8 @@ export const useAuthContext = () => {
   }
   return useContext(authContext);
 };
+
+//createContext() is used to create a context which is then used to create a Context Provider to provide states/effects e.t.c to the nested child components inside it.
+//Then this context is utilized by the child components via importing and using the useContext() Hook. E.g here in the above example the child components will import
+//  the useAuthContext which equals to useContext(authContext). As the provider is authContext.Provider.
+// Reference W3 Schools : https://www.w3schools.com/react/react_usecontext.asp

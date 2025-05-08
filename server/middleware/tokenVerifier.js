@@ -22,6 +22,8 @@ const authMiddleware = async (req, res, next) => {
         console.log("Token Verified! - ref: tokenVerifier.js");
 
 
+        //The req data will be first rcvd in this middleware, it will be then updated as below 
+        // and then will be passed to the next middleware that is the isAdminValidator as soon as the next() gets called
         req.user = userData;
         req.userID = userData._id;
         req.token = token;

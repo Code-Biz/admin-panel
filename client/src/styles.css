@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+/* In TailwindCss 4 the default styling is done inside the base layers */
+@layer base {
+  * {
+    margin: auto;
+    width: auto;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  html {
+    font-size: 90%;
+    @apply max-h-screen;
+  }
+
+  label {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@layer components {
+  .container {
+    @apply m-0 w-auto p-2 flex justify-center;
+  }
+
+  .button-primary {
+    @apply border-1 hover:border-none border-purple-400 btn btn-soft btn-primary;
+  }
+
+  .tr-reg {
+    @apply flex justify-end w-full my-3;
+  }
+
+  .td-reg-labels {
+    @apply flex justify-end w-fit m-0 min-w-fit;
+  }
+  .td-reg-inputs {
+    @apply w-fit mx-2;
+  }
+
+  .inputs {
+    @apply input bg-transparent border-purple-500 w-70   focus:outline-none focus:border-2 font-medium text-[1rem] text-purple-800;
+  }
+
+  .thead-admin-users {
+    @apply border-r-2 border-b-2  border-purple-500;
+  }
+}
+
+/* 
+//  ********************************************************************
+//                              GUIDE          
+//  ____________________________________________________________________ 
+
+
+min-w-fit/full:          minimum width of some element will be fit-content/full-screen
+max-w-fit/full:          maximum width of some element will be fit-content/full-screen  
+max-sm:min-w-fit/full:   minimum width of some element will be fit-content/full-screen till the maximum size of the small screen
+min-sm:max-w-fit/full:   maximum width of some element will be fit-content/full-screen till minimum of the small screen
+
+max-sm:w-fit/full/[custom]:   width of some element will be fit-content/full-screen/custom till the maximum size of the small screen
+min-sm:w-fit/full/[custom]:   width of some element will be fit-content/full-screen/custom till minimum of the small screen
+
+
+for flex-cols width is replaced by height and also justify with items
+*/

@@ -10,7 +10,7 @@ const tokenVerifier = require('../middleware/tokenVerifier');
 
 // GET DASHBOARD --------
 router.route('/').get(auth_controllers.home);
-// POST REGISTER --------
+// POST REGISTER -------- (i.e the servere is recieving a post request containing some data )
 router.route('/register').post(regValidator(registrationValidationSchema), auth_controllers.register);
 // GET LOGIN ---------
 router.route('/login').post(loginValidator(loginValidationSchema), auth_controllers.login);

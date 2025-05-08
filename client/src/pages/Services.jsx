@@ -6,6 +6,9 @@ export const Services = () => {
   console.log("Services from context:", services);
 
   return (
+    //Here the section is the one top level element
+    //Alternatively, you can use a "fragment" i.e <></> to wrap multiple lines. This will prevent unnecessarily adding extra nodes to the DOM.
+
     <section className="services-section">
       <div className="services-container">
         <h1 id="services-h1">Services</h1>
@@ -31,3 +34,5 @@ export const Services = () => {
     </section>
   );
 };
+
+//To be able to use conditional statements in JSX, you should put the if statements outside of the JSX, or you could use a ternary expression instead source https://www.w3schools.com/react/react_jsx.asp

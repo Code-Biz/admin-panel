@@ -1,7 +1,8 @@
 import { useState } from "react";
-import("./login.css");
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../store/contextsAndEffects_provider";
+// import "./login.css";
+import { toast } from "react-toastify";
 
 const url = "http://localhost:3000/api/auth/login";
 
@@ -40,65 +41,90 @@ export const Login = () => {
       if (response.ok) {
         storeTokenInLS(res_asJSON.token);
 
-        alert("Login Successful");
+        toast.success("Login Successful");
         setUser({ email: "", pass: "" });
         // The below log workss
         // console.log("User Loged In: " + `${user.username}`);
         navigator("/Home");
       } else {
         console.log(res_asJSON);
-        alert(res_asJSON);
+        toast.error(res_asJSON);
       }
     } catch (error) {}
   };
 
   return (
-    <>
-      <section>
-        <main>
-          <div className="section-login">
-            <div className="container grid grid-two-cols">
-              <div className="login-image">
-                <img src="Images\register-form.png" alt="" id="log-image" />
+    // min-w-full means that the minimum width in all scenarios will be full or u can set fit as well
+
+    <section className="m-0 max-w-full min-w-fit bg-purple-100">
+      <div className=" m-0 flex max-w-full min-w-fit ">
+        <div className=" m-0 bg-purple-200 max-w-[50%] min-w-[50%]">
+          <img
+            src="Images\register-form.png"
+            className="max-sm:min-w-[50%] size-150"
+            id="log-image"
+          />
+        </div>
+
+        <div className="max-sm:min-w-[5%] w-120">
+          <h1 className="flex justify-center font-black text-6xl text-purple-600 ">
+            Login
+          </h1>
+          <br />
+
+          <form
+            onSubmit={handleSubmit}
+            className=" container py-10 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
+          >
+            <div className="flex flex-col items-center">
+              <div className="container">
+                <label
+                  htmlFor="email"
+                  className="font-bold text-2xl  text-purple-600 mr-0"
+                >
+                  Email :
+                </label>
+                <input
+                  type="text"
+                  name="email"
+                  value={user.email}
+                  required
+                  placeholder="Email ..."
+                  onChange={handleInput}
+                  autoComplete="off"
+                  className="inputs mx-0"
+                  // The above line states that maximum width will be 50 and till the maximum of small screen it will be 20
+                />
+              </div>
+              <div className="container">
+                <label
+                  htmlFor="pass"
+                  className="font-bold text-2xl text-purple-600 mr-0"
+                >
+                  Password :
+                </label>
+                <input
+                  type="password"
+                  name="pass"
+                  value={user.pass}
+                  required
+                  placeholder="Password ..."
+                  onChange={handleInput}
+                  autoComplete="off"
+                  className="inputs m-0"
+                />
               </div>
 
-              <div className="login-form">
-                <h1>Login</h1>
-                <br />
-
-                <form onSubmit={handleSubmit}>
-                  <div className="div-email">
-                    <label htmlFor="email">Email : </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={user.email}
-                      required
-                      placeholder="Email ..."
-                      onChange={handleInput}
-                      autoComplete="off"
-                    />
-                  </div>
-                  <div className="div-pass">
-                    <label htmlFor="pass">Password : </label>
-                    <input
-                      type="pass"
-                      name="pass"
-                      value={user.pass}
-                      required
-                      placeholder="Password ..."
-                      onChange={handleInput}
-                      autoComplete="off"
-                    />
-                  </div>
-                  <br />
-                  <button type="submit">Login</button>
-                </form>
-              </div>
+              <button
+                type="submit"
+                class="btn-lg btn  hover:bg-purple-900 rounded-full w-110 h-15 btn-primary bg-purple-600 mt-8"
+              >
+                Login
+              </button>
             </div>
-          </div>
-        </main>
-      </section>
-    </>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
