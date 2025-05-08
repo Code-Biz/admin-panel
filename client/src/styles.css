@@ -33,7 +33,7 @@
   }
 
   .button-primary {
-    @apply border-1 hover:border-none border-purple-400 btn btn-soft btn-primary;
+    @apply border-1  hover:border hover:shadow-none border-purple-400 btn btn-soft btn-primary;
   }
 
   .tr-reg {

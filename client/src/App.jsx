@@ -5,6 +5,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Logout } from "./pages/Logout";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 import { AdminLayout } from "./components/Admin-Layout";
 import { AdminUsers } from "./pages/Admin-Users";
 import { AdminContacts } from "./pages/Admin-Contacts";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="contacts" element={<AdminContacts />} />
           </Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

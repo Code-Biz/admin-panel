@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 export const AdminLayout = () => {
   return (
     <section className="flex justify-around w-full mt-20">
-      <div className="flex flex-col w-50 ml-8 border-2 rounded-2xl border-purple-500">
+      <div className="flex flex-col w-50 ml-8 border-2 rounded-2xl border-purple-500 my-5">
         <h1 className="font-bold text-4xl w-full text-purple-600 border-b-2 border-purple-400 p-2">
           Admin <br />
           Controls
@@ -31,7 +31,7 @@ export const AdminLayout = () => {
                 to="/services"
                 className="btn btn-link p-0 font-semibold text-[16px] text-purple-600"
               >
-                Services -❯
+                SERVICES -❯
               </NavLink>
             </li>
           </ul>

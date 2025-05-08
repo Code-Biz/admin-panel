@@ -73,7 +73,9 @@ export const AdminUsers = () => {
                   <button
                     class="btn btn-outline btn-error outline-red-600 text-red-500 hover:text-white hover:bg-red-600"
                     onClick={() => {
-                      deleteUser(curUser._id);
+                      usersData.isAdmin
+                        ? deleteUser(curUser._id)
+                        : alert("Sorry, Admin can't be deleted!");
                     }}
                   >
                     DELETE

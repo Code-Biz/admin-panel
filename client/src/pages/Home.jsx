@@ -6,7 +6,7 @@ const Home = () => {
   const { userData } = useAuthContext();
 
   return (
-    <section className="flex-col w-full bg-amber-300">
+    <section className="flex-col w-full">
       {/* <h1>
         .......................... Welcome! Doctor {userData.username}{" "}
         ..........................
@@ -71,210 +71,228 @@ const Home = () => {
         </div>
         {/* ****************************************************************** */}
         {/* ****************************************************************** */}
+      </div>
+      <div
+        id="Articles-Div"
+        className="relative  mt-[-70px] pb-10 w-full carousel flex "
+      >
         <div
-          id="Articles-Div"
-          className="absolute mt-110 w-full carousel flex "
+          id="slide-A"
+          className="carousel-item relative w-full justify-center"
         >
-          <div
-            id="slide-A"
-            className="carousel-item relative w-full justify-center"
-          >
-            <div className="mx-15 card bg-white w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+          <div className="mx-15 card bg-white w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
               </div>
-            </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide-C" className=" ml-15 btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide-B" className="  mr-15 btn btn-circle">
-                ❯
-              </a>
             </div>
           </div>
-          <div
-            id="slide-B"
-            className="carousel-item relative w-full justify-center"
-          >
-            <div className="mx-15 card bg-white w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
               </div>
-            </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide-A" className=" ml-15 btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide-C" className="  mr-15 btn btn-circle">
-                ❯
-              </a>
             </div>
           </div>
-          <div
-            id="slide-C"
-            className="carousel-item relative w-full justify-center"
-          >
-            <div className="mx-15 card bg-white w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+          </div>
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a
+              href="#slide-C"
+              className=" ml-1 btn btn-xl bg-purple-300 btn-lg btn-circle"
+            >
+              ❮
+            </a>
+            <a
+              href="#slide-B"
+              className="  mr-1 btn btn-xl bg-purple-300 btn-circle"
+            >
+              ❯
+            </a>
+          </div>
+        </div>
+        <div
+          id="slide-B"
+          className="carousel-item relative w-full justify-center"
+        >
+          <div className="mx-15 card bg-white w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
-            <div className="mx-15 card bg-base-100 w-96 shadow-sm">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+          </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide-B" className=" ml-15 btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide-A" className="  mr-15 btn btn-circle">
-                ❯
-              </a>
+          </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
             </div>
+          </div>
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a
+              href="#slide-A"
+              className=" ml-1 btn btn-xl bg-purple-300 btn-circle"
+            >
+              ❮
+            </a>
+            <a
+              href="#slide-C"
+              className="  mr-1 btn btn-xl bg-purple-300 btn-circle"
+            >
+              ❯
+            </a>
+          </div>
+        </div>
+        <div
+          id="slide-C"
+          className="carousel-item relative w-full justify-center"
+        >
+          <div className="mx-15 card bg-white w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          <div className="mx-15 card bg-base-100 w-96 shadow-sm">
+            <figure>
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Card Title</h2>
+              <p>
+                A card component has a figure, a body part, and inside body
+                there are title and actions parts
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a
+              href="#slide-B"
+              className=" ml-1 btn btn-xl bg-purple-300 btn-circle"
+            >
+              ❮
+            </a>
+            <a
+              href="#slide-A"
+              className="  mr-1 btn btn-xl bg-purple-300 btn-circle"
+            >
+              ❯
+            </a>
           </div>
         </div>
       </div>
@@ -353,6 +371,7 @@ const Contact = () => {
                     Message :
                   </label>
                   <textarea
+                    id="user-message"
                     type="text"
                     placeholder="Your message here ..."
                     className=" border-purple-500 placeholder-purple-600 focus:outline-none focus:border-2 font-medium text-[1rem] text-purple-800 textarea m-0 textarea-primary bg-purple-50 h-50 w-70 "
@@ -361,6 +380,9 @@ const Contact = () => {
 
                 <button
                   type="submit"
+                  onClick={() => {
+                    alert("Message sent successfully!");
+                  }}
                   class="btn-lg btn hover:bg-purple-900 rounded-full w-108 h-15 btn-primary bg-purple-600 my-6"
                 >
                   Send
