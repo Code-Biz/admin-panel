@@ -30,7 +30,7 @@ connectDB().then(() => {
 })
 
 
-
+//xyz
 
 // In very beginnings or after cloning the project donot git init or e.t.c in server just npm init in server
 ///Go back to admin panel do npm install in admin panel and git init also in admin panel
