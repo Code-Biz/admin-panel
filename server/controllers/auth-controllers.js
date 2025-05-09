@@ -29,6 +29,7 @@ const register = async (req, res) => {
       // registering
       else {
          const userCreated = await User.create({ username, email, pass, phone });// This is the main line below is just a basic response shown to user.
+         console.log("This is the result of userCreated : ", userCreated);
 
          res.status(200).json({
             msg: "User registered successfully ...",

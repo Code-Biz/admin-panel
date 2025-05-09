@@ -1,7 +1,9 @@
-const regvalidator = (schema) => async (req, res, next) => {
+const regvalidator = (zodValidationschema) => async (req, res, next) => {
 
     try {
-        const validatedRegistration = await schema.parseAsync(req.body);
+        const validatedRegistration = await zodValidationschema.parseAsync(req.body);
+        // console.log("==========>",validatedRegistration); validatedRegistration the same data as it was if it matches the schema and is the as it is passed to the body
+
         req.body = validatedRegistration;
         console.log("User is validated")
         next(); // goes back to next function i.e register in auth-controller 

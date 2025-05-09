@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // HASHING --------
-// Hashing Password using the below middleware on the spot its recieved in th registration request
+// Hashing Password using the below middleware on the spot its recieved in th registration request via the create/save method. This function runs on create/save method
 userSchema.pre('save', async function () {
 
     if (!this.isModified('pass')) {
