@@ -46,9 +46,9 @@ export const AdminUsers = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto rounded-xl border-purple-500 border-1 border-b-0 border-t-2 ">
-      <table class="table">
-        <thead class="bg-purple-200 ">
+    <div className="overflow-y-auto max-h-[320px] overflow-x-hidden rounded-xl border-purple-500 border-1  border-t-2 ">
+      <table class="table w-250 text-[1rem]">
+        <thead class="bg-purple-200 text-[1rem]">
           <tr>
             <th className="thead-admin-users">S. No</th>
             <th className="thead-admin-users">User Id</th>
@@ -63,7 +63,7 @@ export const AdminUsers = () => {
           {usersData.map((curUser, index) => {
             return (
               <tr className="border-purple-400 border-b" key={index}>
-                <th scope="row">{index + 1}</th>
+                <th>{index + 1}</th>
                 <td>{curUser._id}</td>
                 <td>{curUser.username}</td>
                 <td>{curUser.email}</td>
@@ -73,9 +73,9 @@ export const AdminUsers = () => {
                   <button
                     class="btn btn-outline btn-error outline-red-600 text-red-500 hover:text-white hover:bg-red-600"
                     onClick={() => {
-                      usersData.isAdmin
-                        ? deleteUser(curUser._id)
-                        : alert("Sorry, Admin can't be deleted!");
+                      !usersData.isAdmin //isAdmin here gives false value as default and then with ! its turned into true
+                        ? deleteUser(curUser._id) //On true of if condition this value runs always
+                        : alert("Sorry, Admin can't be deleted!"); //On false of if condition this value runs always
                     }}
                   >
                     DELETE

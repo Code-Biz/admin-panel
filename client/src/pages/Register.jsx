@@ -32,7 +32,6 @@ export const Register = () => {
   };
 
   const navigator = useNavigate();
-  const { storeTokenInLS } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -196,7 +195,7 @@ export const Register = () => {
               <div className="">
                 <button
                   type="submit"
-                  class="btn-lg btn h-15 hover:bg-purple-900 rounded-full w-110 btn-primary bg-purple-600 mt-8"
+                  className="btn-lg btn h-15 hover:bg-purple-900 rounded-full w-110 btn-primary bg-purple-600 mt-8"
                 >
                   Register
                 </button>

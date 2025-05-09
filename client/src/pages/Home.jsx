@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { useAuthContext } from "../store/contextsAndEffects_provider";
+import { useState } from "react";
 
 //A home component
 const Home = () => {
@@ -307,7 +308,27 @@ const About = () => {
 
 //A contact component
 const Contact = () => {
-  const { userData } = useAuthContext();
+  // const { userData } = useAuthContext();
+  const [contact, setContact] = useState({
+    userName: "",
+    userEmail: "",
+    userMsg: "",
+  });
+
+  const handleInput = (e) => {
+    const fieldName = e.target.name;
+    const value = e.target.value;
+
+    setContact({ ...contact, [fieldName]: value });
+    console.log(contact.userName, contact.userEmail, contact.userMsg);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    alert(
+      `Haha, ${contact.userName}! \n its dummy yet, backend needs to be setup first!`
+    );
+  };
   return (
     <>
       <section className="m-0  max-w-full min-w-fit bg-purple-100">
@@ -327,7 +348,7 @@ const Contact = () => {
             <br />
 
             <form
-              // onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
               className=" container py-4 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
             >
               <div className="flex flex-col items-center">
@@ -340,10 +361,11 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
-                    name="username"
-                    readOnly
-                    placeholder={userData.username}
+                    name="userName"
+                    placeholder={"Your Name "}
                     className="inputs mx-0"
+                    onChange={handleInput}
+                    value={contact.userName}
                     // The above line states that maximum width will be 50 and till the maximum of small screen it will be 20
                   />
                 </div>
@@ -355,35 +377,35 @@ const Contact = () => {
                     Email :
                   </label>
                   <input
-                    type="password"
-                    name="pass"
-                    placeholder={userData.email}
-                    readOnly
+                    type="email"
+                    name="userEmail"
+                    placeholder={"Your Email "}
+                    value={contact.userEmail}
                     className="inputs m-0"
+                    onChange={handleInput}
                   />
                 </div>
 
                 <div className="container">
                   <label
-                    htmlFor="email"
+                    htmlFor="message"
                     className="font-bold text-2xl text-purple-600 mt-0 min-w-fit mr-0"
                   >
                     Message :
                   </label>
                   <textarea
                     id="user-message"
+                    name="userMsg"
                     type="text"
                     placeholder="Your message here ..."
                     className=" border-purple-500 placeholder-purple-600 focus:outline-none focus:border-2 font-medium text-[1rem] text-purple-800 textarea m-0 textarea-primary bg-purple-50 h-50 w-70 "
+                    onChange={handleInput}
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  onClick={() => {
-                    alert("Message sent successfully!");
-                  }}
-                  class="btn-lg btn hover:bg-purple-900 rounded-full w-108 h-15 btn-primary bg-purple-600 my-6"
+                  className="btn-lg btn hover:bg-purple-900 rounded-full w-108 h-15 btn-primary bg-purple-600 my-6"
                 >
                   Send
                 </button>

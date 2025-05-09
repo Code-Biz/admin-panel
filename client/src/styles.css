@@ -48,7 +48,7 @@
   }
 
   .inputs {
-    @apply input bg-transparent border-purple-500 w-70   focus:outline-none focus:border-2 font-medium text-[1rem] text-purple-800;
+    @apply placeholder-purple-600 input bg-transparent border-purple-500 w-70   focus:outline-none focus:border-2 font-medium text-[1rem] text-purple-800;
   }
 
   .thead-admin-users {

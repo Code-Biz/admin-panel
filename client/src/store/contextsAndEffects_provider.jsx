@@ -36,6 +36,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const userVerifier = async () => {
     try {
+      //POSTING A GET REQUEST
       const response = await fetch("http://localhost:3000/api/auth/user", {
         method: "GET",
         headers: {

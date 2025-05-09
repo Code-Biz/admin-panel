@@ -117,7 +117,7 @@ export const Login = () => {
 
               <button
                 type="submit"
-                class="btn-lg btn  hover:bg-purple-900 rounded-full w-110 h-15 btn-primary bg-purple-600 mt-8"
+                className="btn-lg btn  hover:bg-purple-900 rounded-full w-110 h-15 btn-primary bg-purple-600 mt-8"
               >
                 Login
               </button>
