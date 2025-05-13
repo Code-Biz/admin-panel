@@ -81,7 +81,7 @@ const Home = () => {
           id="slide-A"
           className="carousel-item relative w-full justify-center"
         >
-          <div className="mx-15 card bg-white w-96 shadow-sm">
+          <div className="mx-15 card w-96 shadow-sm">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -154,7 +154,7 @@ const Home = () => {
           id="slide-B"
           className="carousel-item relative w-full justify-center"
         >
-          <div className="mx-15 card bg-white w-96 shadow-sm">
+          <div className="mx-15 card w-96 shadow-sm">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -227,7 +227,7 @@ const Home = () => {
           id="slide-C"
           className="carousel-item relative w-full justify-center"
         >
-          <div className="mx-15 card bg-white w-96 shadow-sm">
+          <div className="mx-15 card  w-96 shadow-sm">
             <figure>
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

@@ -1,25 +1,26 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
+const { required } = require('./regValidationSchema');
 require('dotenv').config();
 
 
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        require: true,
+        required: true,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
     },
     pass: {
         type: String,
-        require: true,
+        required: true,
     },
     phone: {
         type: String,
-        require: true,
+        required: true,
     },
 
     isAdmin: {
@@ -30,7 +31,7 @@ const userSchema = new mongoose.Schema({
 
 // HASHING --------
 // Hashing Password using the below middleware on the spot its recieved in th registration request via the create/save method. This function runs on create/save method
-userSchema.pre('save', async function () {
+userSchema.pre('save', async function (next) {
 
     if (!this.isModified('pass')) {
         next();

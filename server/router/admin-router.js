@@ -7,6 +7,7 @@ const contacts = require('../controllers/contactus-controller');
 
 router.route('/users').get(tokenVerifier, isAdminValidator, admin_controllers.getAllUsers_Admin);
 router.route("/users/delete/:id").delete(tokenVerifier, isAdminValidator, admin_controllers.deleteUser);
+router.route("/users/update/:id").patch(tokenVerifier, isAdminValidator, admin_controllers.patchUser);
 router.route('/contacts/all').get(tokenVerifier, isAdminValidator, contacts.getContacts);
 
 

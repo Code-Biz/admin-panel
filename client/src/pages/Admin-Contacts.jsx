@@ -9,27 +9,31 @@ export const AdminContacts = () => {
   const [admin, toggleAdmin] = useState(true);
 
   const getContacts = async () => {
-    const response = await fetch(
-      "http://localhost:3000/api/admin/contacts/all",
-      {
-        method: "GET",
-        headers: { Authorization: authorization },
-      }
-    );
-    const res_asJSON = await response.json();
-
-    if (res_asJSON.isAdmin === false) {
-      console.log(res_asJSON.isAdmin);
-      console.log(
-        "response rcvd is an access denied msg and not an array of contacts therefore toggling the isAdmin Value to false"
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/admin/contacts/all",
+        {
+          method: "GET",
+          headers: { Authorization: authorization },
+        }
       );
-      toggleAdmin(false);
-      setData(res_asJSON.msg);
+      const res_asJSON = await response.json();
+
+      if (res_asJSON.isAdmin === false) {
+        console.log(res_asJSON.isAdmin);
+        console.log(
+          "response rcvd is an access denied msg and not an array of contacts therefore toggling the isAdmin Value to false"
+        );
+        toggleAdmin(!isAdmin);
+        setData(res_asJSON.msg);
+      }
+      setData(res_asJSON);
+      console.log(
+        "response rcvd is not an access denied msg instead its an array of contacts therefore saving in contacts state"
+      );
+    } catch (error) {
+      // console.log(error);
     }
-    setData(res_asJSON);
-    console.log(
-      "response rcvd is not an access denied msg instead its an array of contacts therefore saving in contacts state"
-    );
   };
 
   useEffect(() => {

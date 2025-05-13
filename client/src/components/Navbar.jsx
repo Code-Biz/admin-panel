@@ -7,7 +7,7 @@ import { useAuthContext } from "../store/contextsAndEffects_provider";
 
 // inline exoprt of (arrow) function named Navbar
 export const Navbar = () => {
-  const { isLogged } = useAuthContext();
+  const { isLogged, userData } = useAuthContext();
   return (
     // the below fragment i.e <></> is not necessary maybe bcz header is alread there whic is serving as the One top-level element
     <>
@@ -57,14 +57,26 @@ export const Navbar = () => {
               </NavLink>
             </li>
             {isLogged ? (
-              <li className="mx-5">
-                <NavLink
-                  to="Logout"
-                  className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
-                >
-                  <button className="button-primary">Logout </button>
-                </NavLink>
-              </li>
+              <>
+                <li className="mx-2">
+                  <NavLink
+                    //either you write admin or Admin most of the times it will not do any issue
+                    to="admin"
+                    className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
+                  >
+                    <button className="button-primary">Admin Panel </button>
+                  </NavLink>
+                </li>
+                <li className="mx-2">
+                  <NavLink
+                    //either you write admin or Admin most of the times it will not do any issue
+                    to="logout"
+                    className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
+                  >
+                    <button className="button-primary">Logout </button>
+                  </NavLink>
+                </li>
+              </>
             ) : (
               <>
                 <li className="mx-2">

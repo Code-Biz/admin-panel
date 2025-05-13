@@ -33,7 +33,7 @@ const getContacts = async (req, res, next) => {
         if (contacts.length == 0) {
             return res.status(404).json({ msg: "Contacts not found! => getAllContactss" })
         }
-        return res.status(404).json(contacts)
+        return res.status(200).json(contacts)
 
     } catch (error) {
         next("Error", error)

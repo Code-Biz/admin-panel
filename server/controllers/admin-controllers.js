@@ -20,7 +20,25 @@ const getAllUsers_Admin = async (req, res, next) => {
 
 };
 
+const patchUser = async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+        const { username, email, phone } = req.body;
 
+        const updatedUser = await Users.findByIdAndUpdate(
+            userId,
+            { username, email, phone }, { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+    } catch (error) {
+        console.error('PATHCUSER===> Error updating user:', error);
+    }
+};
 
 const deleteUser = async (req, res, next) => {
     try {
@@ -37,5 +55,5 @@ const deleteUser = async (req, res, next) => {
     }
 };
 
-module.exports = { getAllUsers_Admin, deleteUser }
+module.exports = { getAllUsers_Admin, deleteUser, patchUser }
 
