@@ -30,7 +30,7 @@ const App = () => {
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUsers />} />
-            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="contacts/all" element={<AdminContacts />} />
           </Route>
         </Routes>
         <Footer />

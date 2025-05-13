@@ -322,12 +322,22 @@ const Contact = () => {
     setContact({ ...contact, [fieldName]: value });
     console.log(contact.userName, contact.userEmail, contact.userMsg);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/api/contacts/new", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contact),
+      });
 
-    alert(
-      `Haha, ${contact.userName}! \n its dummy yet, backend needs to be setup first!`
-    );
+      const res_asJSON = await response.json();
+
+      if (response.ok) {
+        alert(`Haha, ${res_asJSON}!, \n Yeh Its Working`);
+        console.log(`Haha, ${res_asJSON}!, \n Yeh Its Working`);
+      }
+    } catch (error) {}
   };
   return (
     <>
@@ -341,7 +351,7 @@ const Contact = () => {
             />
           </div>
 
-          <div className="max-sm:min-w-[5%] w-120">
+          <div className="max-sm:min-w-[5%] w-120 p-2">
             <h1 className="flex justify-center font-black text-6xl text-purple-600 ">
               Contact Us
             </h1>
@@ -349,7 +359,7 @@ const Contact = () => {
 
             <form
               onSubmit={handleSubmit}
-              className=" container py-4 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
+              className="mb-5 container py-4 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
             >
               <div className="flex flex-col items-center">
                 <div className="container">

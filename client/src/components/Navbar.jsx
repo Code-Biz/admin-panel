@@ -14,7 +14,7 @@ export const Navbar = () => {
       <div className="container py-4  max-w-full min-w-fit justify-between bg-purple-200  border-b-2 border-purple-700">
         <div className="my-2 ml-5 max-sm:ml-2 max-sm:mr-3">
           <NavLink
-            to="Home"
+            to="localhost:8000"
             className="font-bold text-4xl border-2 rounded-xl p-2 bg-purple-200 text-purple-600"
           >
             Dento Care
@@ -42,7 +42,7 @@ export const Navbar = () => {
             </li>
             <li className="mx-5">
               <NavLink
-                to="Contact"
+                to="contact"
                 className="btn btn-link p-0 font-semibold text-[16px] text-purple-600"
               >
                 Contact Us

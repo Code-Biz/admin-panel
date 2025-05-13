@@ -20,7 +20,7 @@ export const AdminLayout = () => {
             </li>
             <li className="w-full p-2  border-purple-300 border-t-1">
               <NavLink
-                to="contacts"
+                to="contacts/all"
                 className="btn btn-link p-0 font-semibold text-[16px] text-purple-600"
               >
                 CONTACTS -❯
@@ -38,7 +38,7 @@ export const AdminLayout = () => {
         </nav>
       </div>
 
-      <div className="w-fit sm:max-w-full  ml-10 mb-10">
+      <div className="w-fit sm:max-w-full mt-10 ml-10 mb-10">
         <Outlet />
       </div>
     </section>
