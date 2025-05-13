@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const auth_routes = require('./router/auth-routes');
-const form_routes = require('./router/form-routes');
+const contactus_routes = require('./router/contactus-routes');
 const services_routes = require('./router/services-routes');
 const admin_router = require('./router/admin-router');;
 const connectDB = require('./utils/db');
@@ -18,7 +18,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json());         // filters json data recieved in requests
 app.use("/api/auth", auth_routes);    // utilizing the router file
-app.use("/api/forms", form_routes);
+app.use("/api/contacts", contactus_routes);
 app.use("/api/services", services_routes);  // api/services/all
 app.use("/api/admin", admin_router);  // api/services/all
 

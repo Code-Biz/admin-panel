@@ -29,5 +29,6 @@ router.route('/register').post(regValidator(registrationValidationSchema), auth_
 router.route('/login').post(loginValidator(loginValidationSchema), auth_controllers.login);
 // GET USER ---------
 router.route('/user').get(tokenVerifier, auth_controllers.user);
+
 module.exports = router;
 

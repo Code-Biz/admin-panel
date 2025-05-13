@@ -1,4 +1,5 @@
 const User = require('../models/user-model');
+const ContactDB = require('../models/contact-model');
 
 
 
@@ -49,6 +50,7 @@ const register = async (req, res) => {
 };
 
 
+
 // LOGIN   ----------
 const login = async (req, res) => {
    try {
@@ -86,6 +88,8 @@ const login = async (req, res) => {
 };
 
 
+
+
 // USER    ----------
 const user = async (req, res) => {
    try {
@@ -96,6 +100,8 @@ const user = async (req, res) => {
       console.log("Error hit while finding user data: " + error);
    }
 };
+
+
 
 
 module.exports = { home, register, login, user }

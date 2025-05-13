@@ -12,9 +12,8 @@ const contactSchema = new Schema({
 
     message: {
         type: String,
-        require: false,
     }
 });
 
-const Contact = new model("Contact", contactSchema);
-module.exports = Contact;
+const contact = new model("contact", contactSchema);
+module.exports = contact;

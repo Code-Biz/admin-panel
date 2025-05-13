@@ -6,7 +6,7 @@ const isAdmin = async (req, res, next) => {
         console.log((isAdmin + ", is the value of isAdmin => isAdminValidaotr"));
 
         if (!isAdmin) {
-            return res.status(403).json({ msg: "Access Denied! You are not the admin user." })
+            return res.status(403).json({ msg: "Access Denied! You are not the admin user.", isAdmin })
         }
 
         next()
