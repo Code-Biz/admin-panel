@@ -24,7 +24,7 @@ const patchUser = async (req, res, next) => {
     try {
         const userId = req.params.id;
         const { username, email, phone } = req.body;
-
+        // ....
         const updatedUser = await Users.findByIdAndUpdate(
             userId,
             { username, email, phone }, { new: true }
