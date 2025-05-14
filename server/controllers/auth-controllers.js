@@ -63,7 +63,7 @@ const login = async (req, res) => {
       }
 
       else {
-         console.log("User Found: " + userExist);
+         // console.log("User Found: " + userExist);
          const userVerified = await userExist.comparePass(pass);
          // Or const userVerified = bcrypt.compare(pass, userExist.pass);;
 
