@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../store/contextsAndEffects_provider";
+import { useEffect } from "react";
 
 // import("./Navbar.css");
 
@@ -58,24 +59,38 @@ export const Navbar = () => {
             </li>
             {isLogged ? (
               <>
-                <li className="mx-2">
-                  <NavLink
-                    //either you write admin or Admin most of the times it will not do any issue
-                    to="admin"
-                    className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
-                  >
-                    <button className="button-primary">Admin Panel </button>
-                  </NavLink>
-                </li>
-                <li className="mx-2">
-                  <NavLink
-                    //either you write admin or Admin most of the times it will not do any issue
-                    to="logout"
-                    className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
-                  >
-                    <button className="button-primary">Logout </button>
-                  </NavLink>
-                </li>
+                {userData.isAdmin ? (
+                  <>
+                    <li className="mx-2">
+                      <NavLink
+                        //either you write admin or Admin most of the times it will not do any issue
+                        to="admin"
+                        className="btn p-0 font-semibold text-[18px] text-purple-600"
+                      >
+                        <button className="button-primary">Admin Panel </button>
+                      </NavLink>
+                    </li>
+                    <li className="mx-2">
+                      <NavLink
+                        //either you write admin or Admin most of the times it will not do any issue
+                        to="logout"
+                        className="btn  p-0 font-semibold text-[18px] text-purple-600"
+                      >
+                        <button className="button-primary">Log Out </button>
+                      </NavLink>
+                    </li>
+                  </>
+                ) : (
+                  <li className="mx-2">
+                    <NavLink
+                      //either you write admin or Admin most of the times it will not do any issue
+                      to="logout"
+                      className="btn p-0 font-semibold text-[18px] text-purple-600"
+                    >
+                      <button className="button-primary">Log Out </button>
+                    </NavLink>
+                  </li>
+                )}
               </>
             ) : (
               <>

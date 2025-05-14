@@ -10,7 +10,7 @@ import { useContext, createContext, useState, useEffect } from "react";
 
 //this below line just an extra statment to use the term authContext nothing else
 export const authContext = createContext();
-
+//Below one is justs a function
 export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("Token_InLS"));
   const [services, setService] = useState([]);
@@ -19,12 +19,14 @@ export const AuthContextProvider = ({ children }) => {
 
   //CONTEXT 1
   const storeTokenInLS = (serverToken) => {
-    return localStorage.setItem("Token_InLS", serverToken);
+    setToken(serverToken);
+    localStorage.setItem("Token_InLS", serverToken);
   };
 
   //CONTEXT 2
   const LogoutUser = () => {
     setToken("");
+    setUserData("");
     return localStorage.removeItem("Token_InLS");
   };
 
@@ -47,7 +49,9 @@ export const AuthContextProvider = ({ children }) => {
       if (response.ok) {
         const user_Data = await response.json();
         setUserData(user_Data.data);
-        console.log("userVerifier successfully ran => contextsAndEffects");
+        console.log(
+          "Token found So userVerifier successfully ran => contextsAndEffects"
+        );
       }
     } catch (error) {}
   };
@@ -61,7 +65,7 @@ export const AuthContextProvider = ({ children }) => {
           method: "GET",
         }
       );
-      2; // console.log("getServices() from context: " + fetch_service_from_bcknd);
+      // console.log("getServices() from context: " + fetch_service_from_bcknd);
 
       if (fetch_service_from_bcknd.ok) {
         const response_data = await fetch_service_from_bcknd.json();
@@ -74,8 +78,15 @@ export const AuthContextProvider = ({ children }) => {
 
   //EFFECT 1 -------- To fetch logged in user data
   useEffect(() => {
+    if (token) {
+      userVerifier();
+    } else {
+      console.log("Token Not Found! ");
+    }
+  }, [token]);
+  //EFFECT 1 -------- To fetch services
+  useEffect(() => {
     getServices();
-    userVerifier();
   }, []);
 
   //Above all is the logic that will be used by different components/parts of application.
@@ -92,7 +103,6 @@ export const AuthContextProvider = ({ children }) => {
         authorization,
       }}
     >
-      {" "}
       {children}
     </authContext.Provider>
 

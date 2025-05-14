@@ -40,12 +40,12 @@ export const Login = () => {
       const res_asJSON = await response.json();
       if (response.ok) {
         storeTokenInLS(res_asJSON.token);
-
-        toast.success("Login Successful");
+        navigator("/Home");
+        // toast.success("Login Successful");
         setUser({ email: "", pass: "" });
+
         // The below log workss
         // console.log("User Loged In: " + `${user.username}`);
-        navigator("/Home");
       } else {
         console.log(res_asJSON);
         toast.error(res_asJSON);

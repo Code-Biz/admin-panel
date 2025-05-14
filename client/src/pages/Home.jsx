@@ -303,7 +303,58 @@ const Home = () => {
 
 //An about component
 const About = () => {
-  return <h1>About Page</h1>;
+  return (
+    <section className="bg-blue-50 py-10 px-100 m-0">
+      <div className="container mx-auto flex flex-col items-center text-center">
+        <h1 className="text-4xl font-bold text-blue-600 mb-5">
+          About DentoCare
+        </h1>
+        <p className="text-lg text-gray-700 max-w-3xl mb-10">
+          At DentoCare, we are committed to providing exceptional dental care
+          services to ensure your oral health and a confident smile. Our team of
+          experienced professionals uses state-of-the-art technology and a
+          patient-centered approach to deliver personalized care.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col items-center">
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              alt="Our Clinic"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <h2 className="text-2xl font-semibold text-blue-500 mt-5">
+              State-of-the-Art Clinic
+            </h2>
+            <p className="text-gray-600 mt-3">
+              Our clinic is equipped with the latest dental technology to
+              provide you with the best care in a comfortable environment.
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+              alt="Our Team"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <h2 className="text-2xl font-semibold text-blue-500 mt-5">
+              Experienced Team
+            </h2>
+            <p className="text-gray-600 mt-3">
+              Our team of skilled dentists and hygienists are dedicated to
+              providing personalized care for every patient.
+            </p>
+          </div>
+        </div>
+        <div className="mt-10">
+          <h2 className="text-3xl font-bold text-blue-600 mb-5">Our Mission</h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            To create healthy, beautiful smiles for our patients by offering
+            comprehensive dental care with compassion and excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 //A contact component

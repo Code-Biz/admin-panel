@@ -8,7 +8,7 @@ export const Logout = () => {
   const { LogoutUser } = useAuthContext();
   useEffect(() => {
     LogoutUser();
-  }, [LogoutUser]);
+  }, []);
 
   return <Navigate to="/login" />;
 };
