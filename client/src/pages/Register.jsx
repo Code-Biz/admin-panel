@@ -83,8 +83,11 @@ export const Register = () => {
   return (
     <>
       <section className="min-h-screen m-0 max-w-full min-w-fit bg-purple-100">
-        <div className=" m-0 flex max-w-full min-w-fit justify-start">
-          <div className=" m-0 flex min-h-screen bg-purple-200 max-w-[50%] min-w-[50%]">
+        <div className=" m-0 min-h-screen flex max-w-full min-w-fit justify-start">
+          <div
+            className="flex
+         m-0 bg-purple-200 max-w-[50%] min-w-[50%]"
+          >
             <img
               src="Images\register-form.png"
               className="max-sm:min-w-[50%] size-150"

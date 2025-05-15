@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 export const Footer = () => {
   return (
     <>
-      <footer className="footer border-0  border-t-2 border-purple-700   sm:footer-horizontal bg-purple-200 font-md text-2xl  text-purple-800  p-10">
+      <footer className="w-screen max-sm:w-screen footer border-0  border-t-2 border-purple-700   sm:footer-horizontal bg-purple-200 font-md text-2xl max-sm:p-5 text-purple-800  p-10">
         <aside>
-          <div className="m-0 my-2 max-sm:ml-2 max-sm:mr-3">
+          <div className="m-0 my-2 max-sm:ml-0 max-sm:text-auto">
             <NavLink
               to="Home"
-              className=" font-bold text-6xl border-2 rounded-xl p-2 bg-blue-50 text-purple-500"
+              className="max-sm:text-lg font-bold text-6xl border-2 rounded-xl p-2 bg-blue-50 text-purple-500 "
             >
               DentoCare
             </NavLink>

@@ -56,9 +56,9 @@ export const Login = () => {
   return (
     // min-w-full means that the minimum width in all scenarios will be full or u can set fit as well
 
-    <section className=" m-0 max-w-full min-w-fit bg-purple-100">
-      <div className=" m-0 min-h-screen flex max-w-full min-w-fit ">
-        <div className="flex m-0 bg-purple-200 max-w-[50%] min-w-[50%]">
+    <section className=" m-0 w-screen min-sm:w-full  bg-purple-100">
+      <div className=" m-0 min-h-screen flex max-sm:flex-col   ">
+        <div className="flex m-0 max-sm:w-full bg-purple-200 w-[50%]">
           <img
             src="Images\register-form.png"
             className="  max-sm:min-w-[50%] size-150"
@@ -66,7 +66,7 @@ export const Login = () => {
           />
         </div>
 
-        <div className="max-sm:min-w-[5%] w-120">
+        <div className="max-sm:w-screen w-50%">
           <h1 className="flex justify-center font-black text-6xl text-purple-600 ">
             Login
           </h1>
@@ -74,13 +74,13 @@ export const Login = () => {
 
           <form
             onSubmit={handleSubmit}
-            className=" container py-10 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
+            className=" container  py-10 bg-blue-100 flex-col border-purple-500 shadow-purple-600 shadow-md rounded-2xl"
           >
             <div className="flex flex-col items-center">
-              <div className="container">
+              <div className="container max-sm:flex-col">
                 <label
                   htmlFor="email"
-                  className="font-bold text-2xl  text-purple-600 mr-0"
+                  className="font-bold text-2xl text-purple-600 ml-0"
                 >
                   Email :
                 </label>
@@ -96,10 +96,10 @@ export const Login = () => {
                   // The above line states that maximum width will be 50 and till the maximum of small screen it will be 20
                 />
               </div>
-              <div className="container">
+              <div className="container max-sm:flex-col">
                 <label
                   htmlFor="pass"
-                  className="font-bold text-2xl text-purple-600 mr-0"
+                  className="font-bold text-2xl text-purple-600 ml-0"
                 >
                   Password :
                 </label>
@@ -117,7 +117,7 @@ export const Login = () => {
 
               <button
                 type="submit"
-                className="btn-lg btn  hover:bg-purple-900 rounded-full w-110 h-15 btn-primary bg-purple-600 mt-8"
+                className="btn-lg btn max-sm:w-50 hover:bg-purple-900 rounded-full w-110 h-15 btn-primary bg-purple-600 mt-8"
               >
                 Login
               </button>
