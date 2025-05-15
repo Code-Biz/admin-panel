@@ -56,12 +56,12 @@ export const Login = () => {
   return (
     // min-w-full means that the minimum width in all scenarios will be full or u can set fit as well
 
-    <section className="m-0 max-w-full min-w-fit bg-purple-100">
-      <div className=" m-0 flex max-w-full min-w-fit ">
-        <div className=" m-0 bg-purple-200 max-w-[50%] min-w-[50%]">
+    <section className=" m-0 max-w-full min-w-fit bg-purple-100">
+      <div className=" m-0 min-h-screen flex max-w-full min-w-fit ">
+        <div className="flex m-0 bg-purple-200 max-w-[50%] min-w-[50%]">
           <img
             src="Images\register-form.png"
-            className="max-sm:min-w-[50%] size-150"
+            className="  max-sm:min-w-[50%] size-150"
             id="log-image"
           />
         </div>

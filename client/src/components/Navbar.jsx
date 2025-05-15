@@ -12,13 +12,13 @@ export const Navbar = () => {
   return (
     // the below fragment i.e <></> is not necessary maybe bcz header is alread there whic is serving as the One top-level element
     <>
-      <div className="container py-4  max-w-full min-w-fit justify-between bg-purple-200  border-b-2 border-purple-700">
+      <div className=" container py-4 min-w-screen  justify-between bg-purple-200  border-b-2 border-purple-700">
         <div className="my-2 ml-5 max-sm:ml-2 max-sm:mr-3">
           <NavLink
             to="localhost:8000"
-            className="font-bold text-4xl border-2 rounded-xl p-2 bg-purple-200 text-purple-600"
+            className=" font-bold text-3xl border-2 rounded-xl p-2 bg-blue-50 text-purple-500"
           >
-            Dento Care
+            DentoCare
           </NavLink>
         </div>
         {/* max-sm:mx-3 in below lines means that till the maximum size-range of the sm devices the margin from  right will be 3 */}
@@ -41,20 +41,21 @@ export const Navbar = () => {
                 About
               </NavLink>
             </li>
-            <li className="mx-5">
-              <NavLink
-                to="contact"
-                className="btn btn-link p-0 font-semibold text-[16px] text-purple-600"
-              >
-                Contact Us
-              </NavLink>
-            </li>
+
             <li className="mx-5">
               <NavLink
                 to="/services"
                 className="btn btn-link p-0 font-semibold text-[18px] text-purple-600"
               >
                 Services
+              </NavLink>
+            </li>
+            <li className="mx-5">
+              <NavLink
+                to="contact"
+                className="btn btn-link p-0 font-semibold text-[16px] text-purple-600"
+              >
+                Contact Us
               </NavLink>
             </li>
             {isLogged ? (
