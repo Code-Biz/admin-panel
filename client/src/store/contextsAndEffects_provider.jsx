@@ -10,7 +10,8 @@ import { useContext, createContext, useState, useEffect } from "react";
 
 //this below line just an extra statment to use the term authContext nothing else
 export const authContext = createContext();
-//Below one is justs a function
+//Below one is just a function. A function which has a Provider of authContext in its return i.e this AuthCOntextProvider is all in all actually authContext.Provider. Or in other words this function is just like as userContext.Provider that i studied in w3 Schools
+//i.e authContext.Provider is under the cover of AuthContextProvider
 export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("Token_InLS"));
   const [services, setService] = useState([]);
@@ -113,12 +114,15 @@ export const AuthContextProvider = ({ children }) => {
 
 //This export checks if useContext i.e authContext is true then it makes the useContext() with argument authContext i.e useContext(authContext) availble to be imported anywhere in the application
 export const useAuthContext = () => {
+  // Well, Its a check point to  check wether the useContext(authContext) will work or not,
+  // in case if its called in other components the same way its being called here, for destructuring and using
+  // states and effects being provided by the authCOntext.Provider.
   if (!useContext(authContext)) {
     throw new Error(
-      " useAuthContext used outside the Provider. It means that useAuthContext is being used or called in some part of code where no value is being provided that could be used in creating the context in store.jsx so that it i.e that value or context can then be provided to other components globally (maybe). ====>> OR MAYBE IT ONLY MEANS Its not being used in the main.jsx"
+      "useContext returned error for the context passed to it!   ==> contextsAndEffetcts.js"
     );
   }
-  return useContext(authContext);
+  return useContext(authContext); //useCOntext is working so just pass it back
 };
 
 //createContext() is used to create a context which is then used to create a Context Provider to provide states/effects e.t.c to the nested child components inside it.
